@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from .forms import *
 
 # Create your views here.
 
-if request.method == "POST":
+def signup(request):
+    if request.method == "POST":
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -21,4 +23,4 @@ if request.method == "POST":
         msg.send()
         messages.success(
             request, 'Email is sent for account verification')
-    return render(request, 'accounts/register.html')
+    return render(request, 'index.html', {'form': UserCreationForm})

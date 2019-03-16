@@ -8,7 +8,10 @@ class UserCreationForm(forms.ModelForm):
     A form for creating new users. Includes all the required
     fields, plus a repeated password.
     """
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    name = forms.CharField(label='name',widget=forms.TextInput(attrs={'placeholder':'Name'}))
+    email = forms.CharField(label='email',widget=forms.TextInput(attrs={'placeholder':'Email'}))
+    phone = forms.CharField(label='phone',widget=forms.TextInput(attrs={'placeholder':'Phone Number'}))
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
     class Meta:
         model = User
         fields = ('email', 'name', 'phone', 'password')
