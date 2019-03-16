@@ -23,4 +23,14 @@ def charge(request):
             description='Donations',
             source=request.POST['stripeToken']
         )
+        to_list = []
+        for user in User.objects.filter(is_donor=True):
+            to_list.append(user.email)
+        for user in User.objects.filter(is_member=True):
+            to_list.append(user.email)
+        subject = 'Donations!!'
+        message = 'Received donations!!'
+        from_email = settings.EMAIL_HOST_USER
+        to_list = to_list
+        send_mail(subject, message, from_email, to_list, fail_silently = True)
         return render(request, 'charge.html')
