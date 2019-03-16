@@ -19,7 +19,12 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('', index, name='index'),
     path('donations/', include('donations.urls')),
+=======
+    path('donations/', include('donations.urls')),
+    path('accounts/', include('accounts.urls')),
+>>>>>>> 989bc8aa15ec96eae71504f7cfed3335def9275e
     path('forum/', include('forum.urls')),
 ]

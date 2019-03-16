@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'accounts',
     'donations',
     'forum',
+    'stripe',
+    'django_markup',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -127,6 +129,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 STRIPE_SECRET_KEY = 'sk_test_b2wZzTxVDMArk9OTlhww5xKe'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_abizpK7lu4DNV2egRJfBlD84'
