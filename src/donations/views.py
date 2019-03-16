@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
-from .models import Donations
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -19,8 +18,8 @@ class HomePageView(TemplateView):
 def charge(request):
     if request.method == 'POST':
         charge = stripe.Charge.create(
-            amount=Donations.amount,
-            currency='inr*',
+            amount=5000000,
+            currency='inr',
             description='Donations',
             source=request.POST['stripeToken']
         )
