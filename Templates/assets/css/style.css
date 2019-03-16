@@ -1,18 +1,18 @@
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .logo {
-    height: 5.5rem;
-    padding: auto;
+  height: 5.5rem;
+  padding: 1.25rem;
 }
 
 .sidebar {
-    width: inherit;
-    height: 100vh;
-    border-right: 1px solid #e9ecef;
+  width: inherit;
+  height: 100vh;
+  border-right: 1px solid #e9ecef;
 }
 
 .spliter {
-    border: 2px solid #e9ecef;
+  border: 2px solid #e9ecef;
 }
