@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'donations',
     'forum',
+    'stripe'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
