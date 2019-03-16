@@ -59,7 +59,7 @@ ROOT_URLCONF = 'LOC_2k19.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 
 STRIPE_SECRET_KEY = 'sk_test_b2wZzTxVDMArk9OTlhww5xKe'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_abizpK7lu4DNV2egRJfBlD84'
