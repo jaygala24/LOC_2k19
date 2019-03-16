@@ -1,8 +1,8 @@
-from .forms import *
 from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model, authenticate, login, logout
+from .forms import UserCreationForm, UserChangeForm
 
 User = get_user_model()
 
@@ -23,7 +23,7 @@ def register_view(request):
             user.save()
             return redirect('accounts:login')
         return redirect('accounts:register')
-    return render(request, 'accounts/register.html')
+    return render(request, 'index.html', {'form': UserCreationForm})
 
 def login_view(request):
     if request.method == "POST":
