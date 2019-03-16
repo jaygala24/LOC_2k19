@@ -32,9 +32,9 @@ class DonationManager(models.Manager):
 
     def analysis(self, *args, **kwargs):
         day = datetime.datetime.now()
-        prev_day = day - datetime.timedelta(365)
+        prev_day = day - datetime.timedelta((6*365)/12)
         dates_Arr = [prev_day]
-        for i in range(1, 13):
+        for i in range(1, 7):
             dates_Arr.append(dates_Arr[i-1] + datetime.timedelta((365/12)))
         summary = []
         for i in range(1, len(dates_Arr)):
@@ -46,8 +46,8 @@ class DonationManager(models.Manager):
             for donation in donations:
                 sum += donation.amount
             myDict = {
-                'month': prev.month,
-                'year': prev.year,
+                'month': next.month,
+                'year': next.year,
                 'amount': sum
             }
             summary.append(myDict)
@@ -57,11 +57,14 @@ class DonationManager(models.Manager):
 class Donation(models.Model):
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField(default=0)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=False, blank=True)
     mode_of_payment = models.CharField(
         max_length=2, choices=choices.Mode_Of_Payment)
 
     objects = DonationManager()
+
+    class Meta:
+        ordering = ['-timestamp', ]
 
     def __str__(self):
         return f"{self.donor} - {self.amount}"

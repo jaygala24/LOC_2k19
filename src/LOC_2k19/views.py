@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model
@@ -17,6 +18,6 @@ def index(request):
         'members': members_count,
         'donors': donors_count,
         'total': total,
-        'donations': donations
+        'donations': json.dumps(donations)
     }
-    return render(request, 'index.html', context)
+    return render(request, 'dashboard.html', context)
