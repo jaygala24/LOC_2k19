@@ -11,10 +11,9 @@ User = get_user_model()
 class Donor(models.Model):
     email = models.EmailField(
         max_length=255, unique=True, verbose_name='email address')
-    name = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.email
 
 
 class Month(Func):
