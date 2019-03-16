@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.http import HttpResponse
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -10,8 +11,7 @@ def post_list(request):
         context = {
             'posts': posts
         }
-        return HttpResponse(posts)
-    return HttpResponse("Index")
+    return render(request, 'forum.html', context)
 
 
 def post_detail(request, pk):
@@ -25,14 +25,11 @@ def post_detail(request, pk):
             if author and text and post:
                 comment = Comment.objects.create(
                     author=author, text=text, post=post)
-                return HttpResponse("Comment Created")
-            return HttpResponse("Error")
         context = {
             'post': post,
             'comments': comments
         }
-        return HttpResponse({'post': post, 'comments': comments})
-    return HttpResponse("Error 404")
+    return render(request, 'forum_detail.html', context)
 
 
 def post_create(request):
@@ -43,7 +40,7 @@ def post_create(request):
             if title and text:
                 post = Post.objects.create(
                     author=request.user, title=title, text=text)
-                return HttpResponse("Post Created")
+                return reverse("forum:detail", kwargs:{'pk': post.pk})
             return HttpResponse("Error")
         return HttpResponse('Post Creation')
     return HttpResponse("Error 404")
