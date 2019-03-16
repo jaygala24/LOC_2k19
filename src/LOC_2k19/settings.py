@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts',
     'donations',
     'forum',
-    'stripe'
+    'stripe',
+    'django_markup',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
