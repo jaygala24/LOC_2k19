@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
+from django.core.mail import send_mail
+from .models import Donation, Donor
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -18,14 +20,14 @@ class HomePageView(TemplateView):
 def charge(request):
     if request.method == 'POST':
         charge = stripe.Charge.create(
-            amount=5000000,
+            amount=Donation.amount,
             currency='inr',
             description='Donations',
             source=request.POST['stripeToken']
         )
         to_list = []
-        for user in User.objects.filter(is_donor=True):
-            to_list.append(user.email)
+        for donor in Donor.objects.all():
+            to_list.append(donor.email)
         for user in User.objects.filter(is_member=True):
             to_list.append(user.email)
         subject = 'Donations!!'

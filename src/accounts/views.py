@@ -2,6 +2,7 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model, authenticate, login, logout
+from django.core.mail import send_mail
 from .forms import UserCreationForm, UserChangeForm
 from donations.models import Donor
 
