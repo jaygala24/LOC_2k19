@@ -6,6 +6,7 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 class HomePageView(TemplateView):
     template_name = 'home.html'
 

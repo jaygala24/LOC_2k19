@@ -49,6 +49,28 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_member(self, email, name, phone, password=None):
+        """
+        Creates and saves a Superuser with the given email, name, phone
+        and password
+        """
+        user = self.create_user(email, name, phone, password=password)
+        user.is_active = True
+        user.is_member = True
+        user.save(using=self._db)
+        return user
+
+    def create_volunteer(self, email, name, phone, password=None):
+        """
+        Creates and saves a Superuser with the given email, name, phone
+        and password
+        """
+        user = self.create_user(email, name, phone, password=password)
+        user.is_active = True
+        user.is_volunteer = True
+        user.save(using=self._db)
+        return user
+
 
 class User(AbstractBaseUser):
     email = models.EmailField(
@@ -60,6 +82,8 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    is_member = models.BooleanField(default=False)
+    is_volunteer = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'email'
