@@ -49,14 +49,16 @@
       <div class="col-md-2">
         <div class="row justify-content-center bg-primary">
           <div class="logo">
-            <a class="h3 text-white text-center" href="index.html">SeeLife</a>
+            <a class="h3 text-white text-center" href="{% url 'dashboard' %}"
+              >SeeLife</a
+            >
           </div>
         </div>
         <div class="sidebar">
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="index.html"
+              href="{% url 'accounts:dashboard' %}"
               >Home</a
             >
           </div>
@@ -64,7 +66,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="members.html"
+              href="{% url 'accounts:members' %}"
               >Members</a
             >
           </div>
@@ -72,7 +74,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="volunteers.html"
+              href="{% url 'accounts:volunteers' %}"
               >Volunteers</a
             >
           </div>
@@ -80,7 +82,7 @@
           <div class="row justify-content-center font-bold">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-primary"
-              href="donors.html"
+              href="{% url 'accounts:donors' %}"
               >Donors</a
             >
           </div>
@@ -88,7 +90,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="forum.html"
+              href="{% url 'forum:list' %}"
               >Forum</a
             >
           </div>
@@ -177,31 +179,19 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Email</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Date</th>
                       </tr>
                     </thead>
                     <tbody>
+                      {% for donor in donors %}
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>{{ donor.donor.email }}</td>
+                        <td>{{ donor.amount }}</td>
+                        <td>{{ donor.timestamp }}</td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
+                      {% endfor %}
                     </tbody>
                   </table>
                 </div>
