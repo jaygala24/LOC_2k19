@@ -18,16 +18,15 @@ def register_view(request):
         user = User.objects.create_volunteer(
             email=email, name=name, phone=phone, password=password)
         user.save()
-
         to_list = []
         for user in User.objects.all():
             to_list.append(user.email)
         subject = 'New Volunteer!!'
         message = 'A New Volunteer has registered.'
         from_email = settings.EMAIL_HOST_USER
-        to_list = to_list
+        to_list = [email, settings.EMAIL_HOST_USER, ]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
-
+        return redirect('accounts:login')
     return render(request, 'accounts/register.html', {'form': UserCreationForm})
 
 

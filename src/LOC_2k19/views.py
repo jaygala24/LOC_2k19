@@ -22,5 +22,10 @@ def dashboard(request):
     }
     return render(request, 'dashboard.html', context)
 
+
 def index(request):
     return render(request, 'index.html')
+
+
+def attendance(request):
+    return render(request, 'attendance.html')

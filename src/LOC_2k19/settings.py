@@ -133,9 +133,9 @@ STATICFILES_DIRS = [
 STRIPE_SECRET_KEY = 'sk_test_b2wZzTxVDMArk9OTlhww5xKe'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_abizpK7lu4DNV2egRJfBlD84'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
+# Email Config
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yourmailid@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword'
 EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jaygala.mumbai@gmail.com'
+EMAIL_HOST_PASSWORD = 'XhRPx3et8Gk84Bk'
+EMAIL_USE_TLS = True

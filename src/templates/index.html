@@ -60,7 +60,7 @@
 						That don't lights. Blessed land spirit creature divide our made two 
 						itself upon you'll dominion waters man second good you they're divided upon winged were replenish night
 					</p>
-					<a class="primary_btn mr-20" href="#">Donate Now</a>
+					<a class="primary_btn mr-20" href="{% url 'donations:home' %}">Donate Now</a>
 					<a class="primary_btn yellow_btn text-white" href="causes.html">See Causes</a>
 				</div>
 			</div>
@@ -487,30 +487,30 @@
 						</p>
 					</div>
 					<div class="col-lg-5 ">
-							<form>
-									<div class="form-group row">
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputnamel3" placeholder="Name">
-											</div>
-											</div>
-											<div class="form-group row">
-												<div class="col-sm-10">
-													<input type="text" class="form-control" id="inputphone3" placeholder="Contact">
-												</div>
-												</div>	  
-									<div class="form-group row">
-										<div class="col-sm-10">
-										<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-										</div>
+							<form action="{% url 'accounts:register' %}" method="POST">
+								{% csrf_token %}	
+								<div class="form-group row">
+									<div class="col-sm-10">
+										<input type="text" name="name" class="form-control" id="inputnamel3" placeholder="Name">
 									</div>
-									<div class="form-group row">
-										<div class="col-sm-10">
-										<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-										</div>
 									</div>
-						<a href="#" class="btn btn-warning btn-xs ">Join us !</a>
-									
-									</form>
+								<div class="form-group row">
+									<div class="col-sm-10">
+										<input type="text" name="phone" class="form-control" id="inputphone3" placeholder="Contact">
+									</div>
+								</div>	  
+								<div class="form-group row">
+									<div class="col-sm-10">
+									<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-10">
+									<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+									</div>
+								</div>
+								<input type="submit" class="btn btn-warning btn-xs" value="Join Us">
+							</form>
 					</div>
 				</div>
 				

@@ -79,9 +79,9 @@
             >
           </div>
           <div class="dropdown-divider mx-3"></div>
-          <div class="row justify-content-center font-bold">
+          <div class="row justify-content-center">
             <a
-              class="h3 heading mt-3 mb-2 btn btn-link text-primary"
+              class="h3 heading mt-3 mb-2 btn btn-link text-default"
               href="{% url 'accounts:donors' %}"
               >Donors</a
             >
@@ -95,9 +95,9 @@
             >
           </div>
           <div class="dropdown-divider mx-3"></div>
-          <div class="row justify-content-center">
+          <div class="row justify-content-center font-bold">
             <a
-              class="h3 heading mt-3 mb-2 btn btn-link text-default"
+              class="h3 heading mt-3 mb-2 btn btn-link text-primary"
               href="{% url 'attendance' %}"
               >Attendance</a
             >
@@ -154,7 +154,7 @@
                       aria-expanded="false"
                     >
                       <i class="ni ni-single-02"></i>
-                      <span class="nav-link-inner--text">Jay Gala</span>
+                      <span class="nav-link-inner--text">{{ user.name }}</span>
                     </a>
                     <div
                       class="dropdown-menu dropdown-menu-right"
@@ -187,24 +187,66 @@
               <div class="card shadow border-0">
                 <div class="card-body p-5">
                   <h6 class="h3 text-black text-center text-uppercase mb-5">
-                    Donors
+                    Attendance
                   </h6>
                   <table class="table table-hover">
                     <thead>
                       <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Attendance</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {% for donor in donors %}
                       <tr>
-                        <td>{{ donor.donor.email }}</td>
-                        <td>{{ donor.amount }}</td>
-                        <td>{{ donor.timestamp }}</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@doe.com</td>
+                        <td><i class="ni ni-check-bold"></i></td>
                       </tr>
-                      {% endfor %}
+                      <tr>
+                        <td>2</td>
+                        <td>Karen Smith</td>
+                        <td>karn@smith.com</td>
+                        <td><i class="ni ni-fat-remove"></i></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>John Mike</td>
+                        <td>john@mike.com</td>
+                        <td><i class="ni ni-check-bold"></i></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>John Smith</td>
+                        <td>john@smith.com</td>
+                        <td><i class="ni ni-check-bold"></i></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>John Doe</td>
+                        <td>john@doe.com</td>
+                        <td><i class="ni ni-fat-remove"></i></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>Karen Smith</td>
+                        <td>karn@smith.com</td>
+                        <td><i class="ni ni-check-bold"></i></td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>John Mike</td>
+                        <td>john@mike.com</td>
+                        <td><i class="ni ni-fat-remove"></i></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>John Smith</td>
+                        <td>john@smith.com</td>
+                        <td><i class="ni ni-check-bold"></i></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>

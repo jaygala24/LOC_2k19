@@ -38,8 +38,9 @@ def charge(request):
         for user in User.objects.filter(is_member=True):
             to_list.append(user.email)
         subject = 'Donations!!'
-        message = 'Received donations!!'
+        message = 'Received donations by ' + email + " and Amount: Rs. " + amount
         from_email = settings.EMAIL_HOST_USER
         to_list = to_list
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        send_mail(subject, message, from_email, [
+                  email, from_email, ], fail_silently=True)
         return render(request, 'charge.html', {'amount': amount})
