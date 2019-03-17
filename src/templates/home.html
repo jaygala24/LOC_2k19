@@ -1,41 +1,15 @@
-<!-- <h2>Buy for $5.00</h2>
-<form action="{% url 'charge' %}" method="post">
-  {% csrf_token %}
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="{{ key }}"
-          data-description="Donations"
-          data-amount="{{ amount }}"
-          data-locale="auto"></script>
-</form> -->
+<form action="/charge" method="post" id="payment-form">
+  <div class="form-row">
+    <label for="card-element">
+      Credit or debit card
+    </label>
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
 
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<input name="donation" id="donation" placeholder="Enter Amount" />
-<button id="customButton">Donate</button>
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
 
-<script>
-var handler = StripeCheckout.configure({
-  key: 'pk_test_abizpK7lu4DNV2egRJfBlD84',
-  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-  locale: 'auto',
-  token: function(token) {
-    // You can access the token ID with `token.id`.
-    // Get the token ID to your server-side code for use.
-  }
-});
-
-document.getElementById('customButton').addEventListener('click', function(e) {
-  // Open Checkout with further options:
-  handler.open({
-    name: 'Donations',
-    amount: 5000000
-  });
-  var amount = document.getElementById('donation').value;
-  alert(amount);
-  e.preventDefault();
-});
-
-// Close Checkout on page navigation:
-window.addEventListener('popstate', function() {
-  handler.close();
-});
-</script>
+  <button>Submit Payment</button>
+</form>

@@ -39,10 +39,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return redirect('dashboard')
-        context = {
-            'error': 'Invalid Credentials'
-        }
-        return render(request, 'login.html', context)
+        return render(request, 'login.html')
     return render(request, 'login.html')
 
 

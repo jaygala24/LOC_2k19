@@ -57,7 +57,7 @@ class DonationManager(models.Manager):
 class Donation(models.Model):
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField(default=0)
-    timestamp = models.DateTimeField(auto_now_add=False, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     mode_of_payment = models.CharField(
         max_length=2, choices=choices.Mode_Of_Payment)
 
