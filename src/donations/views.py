@@ -1,15 +1,15 @@
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
 from django.core.mail import send_mail
 from .models import Donation, Donor
-import stripe
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+User = get_user_model()
 
 
 class HomePageView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'card.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -19,12 +19,16 @@ class HomePageView(TemplateView):
 
 def charge(request):
     if request.method == 'POST':
-        charge = stripe.Charge.create(
-            amount=Donation.amount,
-            currency='inr',
-            description='Donations',
-            source=request.POST['stripeToken']
-        )
+        email = request.POST.get('email', None)
+        amount = request.POST.get('amount', None)
+        card = request.POST.get('card', None)
+        expiry = request.POST.get('expiry', None)
+        cvv = request.POST.get('cvv', None)
+        donor = Donor.objects.filter(email=email).first()
+        if donor is None:
+            donor = Donor.objects.create(email=email)
+        donation = Donation.objects.create(
+            donor=donor, amount=amount, mode_of_payment='DC')
         to_list = []
         for donor in Donor.objects.all():
             to_list.append(donor.email)
@@ -34,5 +38,5 @@ def charge(request):
         message = 'Received donations!!'
         from_email = settings.EMAIL_HOST_USER
         to_list = to_list
-        send_mail(subject, message, from_email, to_list, fail_silently = True)
-        return render(request, 'charge.html')
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        return render(request, 'charge.html', {'amount': amount})
