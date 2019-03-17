@@ -36,9 +36,10 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+								<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li> 
 								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
 								<li class="nav-item"><a class="nav-link" href="causes.html">Causes</a>
+								<li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
 							</ul>
 						</div> 
 					</div>
@@ -229,7 +230,7 @@
 												The conflict in Syria has devastated the lives of a generation of young people.We've taken an initiative to help them, for which we need your cooperation!</p>
 										<div class="d-flex count_time" id="clockdiv1">
 											<div class="mr-25">
-												<h4 class="days">552</h4>
+												<h4 class="days">5</h4>
 												<p>Days</p>
 											</div>
 											<div class="mr-25">
@@ -271,7 +272,7 @@
 										</p>
 										<div class="d-flex count_time" id="clockdiv2">
 											<div class="mr-25">
-												<h4 class="days">552</h4>
+												<h4 class="days">19</h4>
 												<p>Days</p>
 											</div>
 											<div class="mr-25">
@@ -313,7 +314,7 @@
 										</p>
 										<div class="d-flex count_time" id="clockdiv3">
 											<div class="mr-25">
-												<h4 class="days">552</h4>
+												<h4 class="days">26</h4>
 												<p>Days</p>
 											</div>
 											<div class="mr-25">
@@ -355,7 +356,7 @@
 										</p>
 										<div class="d-flex count_time" id="clockdiv4">
 											<div class="mr-25">
-												<h4 class="days">552</h4>
+												<h4 class="days">33</h4>
 												<p>Days</p>
 											</div>
 											<div class="mr-25">
@@ -383,7 +384,7 @@
 	<!--================ End Recent Event Area =================-->
 
 	<!--================Team Area =================-->
-	<section class="team_area section_gap">
+	<!-- <section class="team_area section_gap">
 			<div class="container">
 				<div class="main_title">
 					<h2>Meet our voluteer</h2>
@@ -396,8 +397,8 @@
 								<img class="img-fluid" src="{% static 'img/voluteer/v1.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
-								<h4>Amogh Parab</h4>
-								<p>Coder at DJ Sanghvi College of Engineering</p>
+								<h4>Dhairya Shah</h4>
+								<p>Chief Executive Operator at Ucadme EdTech</p>
 								<p class="mt-20">
 									
 								</p>
@@ -417,8 +418,8 @@
 								<img class="img-fluid" src="{% static 'img/voluteer/v2.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
-								<h4>Dhairya Shah</h4>
-								<p>Coder at DJ Sanghvi College of Engineering</p>
+								<h4>Harsh Mistry</h4>
+								<p>Sales head at eWay</p>
 								<p class="mt-20">
 								</p>
 								<div class="social">
@@ -438,7 +439,7 @@
 							</div>
 							<div class="team_name">
 								<h4>Adit Kalyani</h4>
-								<p>Topper at Mumbai University</p>
+								<p>Marketing Head at Vijay Sales</p>
 								<p class="mt-20">
 									</p>
 								<div class="social">
@@ -458,7 +459,7 @@
 							</div>
 							<div class="team_name">
 								<h4>Jay Rathod</h4>
-								<p>Liar at DJ Sanghvi College of Engineering</p>
+								<p>Vice Principal at DJ Sanghvi College of Engineering</p>
 								<p class="mt-20">
 								</p>
 								<div class="social">
@@ -472,7 +473,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 	<!--================End Team Area =================-->
 
 	<!--================ Start CTA Area =================-->
@@ -507,7 +508,7 @@
 										<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
 										</div>
 									</div>
-						<a href="#" class="primary_btn yellow_btn rounded ">Join us !</a>
+						<a href="#" class="btn btn-warning btn-xs ">Join us !</a>
 									
 									</form>
 					</div>

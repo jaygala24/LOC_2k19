@@ -44,13 +44,7 @@ def post_create(request, *args, **kwargs):
             if title and text:
                 post = Post.objects.create(
                     author=request.user, title=title, text=text)
-<<<<<<< HEAD
-                return reverse("forum:detail", {kwargs:{'pk': post.pk}})
-            return HttpResponse("Error")
-        return HttpResponse('Post Creation')
-=======
                 return redirect('forum:detail', pk=post.pk)
             return render(request, 'forum_create.html')
         return render(request, 'forum_create.html')
->>>>>>> a8570ba4a70d4fee9f13bf72b4fde5d79401c5ef
     return HttpResponse("Error 404")
