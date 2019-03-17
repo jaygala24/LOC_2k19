@@ -49,14 +49,16 @@
       <div class="col-md-2">
         <div class="row justify-content-center bg-primary">
           <div class="logo">
-            <a class="h3 text-white text-center" href="index.html">SeeLife</a>
+            <a class="h3 text-white text-center" href="{% url 'dashboard' %}"
+              >SeeLife</a
+            >
           </div>
         </div>
         <div class="sidebar">
-          <div class="row justify-content-center font-bold">
+          <div class="row justify-content-center">
             <a
-              class="h3 heading mt-3 mb-2 btn btn-link text-primary"
-              href="index.html"
+              class="h3 heading mt-3 mb-2 btn btn-link text-default"
+              href="{% url 'dashboard' %}"
               >Home</a
             >
           </div>
@@ -64,7 +66,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="members.html"
+              href="{% url 'accounts:members' %}"
               >Members</a
             >
           </div>
@@ -72,7 +74,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="volunteers.html"
+              href="{% url 'accounts:volunteers' %}"
               >Volunteers</a
             >
           </div>
@@ -80,7 +82,7 @@
           <div class="row justify-content-center">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-default"
-              href="donors.html"
+              href="{% url 'accounts:donors' %}"
               >Donors</a
             >
           </div>
@@ -88,7 +90,7 @@
           <div class="row justify-content-center font-bold">
             <a
               class="h3 heading mt-3 mb-2 btn btn-link text-primary"
-              href="forum.html"
+              href="{% url 'forum:list' %}"
               >Forum</a
             >
           </div>
@@ -115,11 +117,7 @@
               <div class="collapse navbar-collapse" id="navbar-default">
                 <div class="navbar-collapse-header">
                   <div class="row">
-                    <div class="col-6 collapse-brand">
-                      <a href="index.html">
-                        <img src="assets/img/brand/blue.png" />
-                      </a>
-                    </div>
+                    <div class="col-6 collapse-brand"></div>
                     <div class="col-6 collapse-close">
                       <button
                         type="button"
@@ -148,16 +146,25 @@
                       aria-expanded="false"
                     >
                       <i class="ni ni-single-02"></i>
-                      <span class="nav-link-inner--text">Jay Gala</span>
+                      <span class="nav-link-inner--text">{{ user.name }}</span>
                     </a>
                     <div
                       class="dropdown-menu dropdown-menu-right"
                       aria-labelledby="navbar-default_dropdown_1"
                     >
-                      <a class="dropdown-item" href="#">My Profile</a>
-                      <a class="dropdown-item" href="#">Settings</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Logout</a>
+                      <a
+                        class="dropdown-item"
+                        href="javascript:{document.getElementById('logout').submit()}"
+                        >Logout</a
+                      >
+                      <form
+                        action="{% url 'accounts:logout' %}"
+                        method="POST"
+                        id="logout"
+                      >
+                        {% csrf_token %}
+                        <input type="hidden" />
+                      </form>
                     </div>
                   </li>
                 </ul>
@@ -169,109 +176,49 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 mt-5">
-              <a href="forum.html" class="btn btn-primary"
+              <a href="{% url 'forum:list' %}" class="btn btn-primary"
                 ><i class="ni ni-bold-left mr-2"></i> Back</a
               >
               <div class="card card-body shadow border-0 mt-3">
                 <div class="card-body py-5">
-                  <h6 class="h4 text-primary text-uppercase">Download Argon</h6>
+                  <h6 class="h4 text-primary text-uppercase">
+                    {{ post.title }}
+                  </h6>
                   <div>
-                    <span class="badge badge-pill badge-primary"
-                      >Author Name</span
-                    >
+                    <span class="badge badge-pill badge-primary">
+                      {{ post.author }}
+                    </span>
                   </div>
                   <p class="description lead mt-3">
-                    Argon is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features.<br />
-                    Argon is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features.<br />
-                    Argon is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. <br />
-                    Argon is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features. Argon
-                    is a great free UI package based on Bootstrap 4 that
-                    includes the most important components and features.
+                    {{ post.text }}
                   </p>
                   <hr class="spliter" />
                   <p class="lead mt-3 text-default">Thread</p>
+                  {% for comment in comments %}
                   <div>
-                    <span class="badge badge-pill badge-primary"
-                      >Author Name</span
-                    >
+                    <span class="badge badge-pill badge-primary">
+                      {{ comment.author }}
+                    </span>
                     <p class="description mt-2">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Minima sit iste ipsa incidunt quasi facilis ipsum fuga
-                      totam, optio, dolore quo odit, recusandae repudiandae
-                      quaerat cumque ab aperiam voluptatum tempora?
+                      {{ comment.text }}
                     </p>
                   </div>
-                  <div>
-                    <span class="badge badge-pill badge-primary"
-                      >Author Name</span
-                    >
-                    <p class="description mt-2">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Minima sit iste ipsa incidunt quasi facilis ipsum fuga
-                      totam, optio, dolore quo odit, recusandae repudiandae
-                      quaerat cumque ab aperiam voluptatum tempora?
-                    </p>
-                  </div>
-                  <div>
-                    <span class="badge badge-pill badge-primary"
-                      >Author Name</span
-                    >
-                    <p class="description mt-2">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Minima sit iste ipsa incidunt quasi facilis ipsum fuga
-                      totam, optio, dolore quo odit, recusandae repudiandae
-                      quaerat cumque ab aperiam voluptatum tempora?
-                    </p>
-                  </div>
-                  <form action="#" class="mt-5">
+                  {% endfor %}
+                  <form
+                    action="{% url 'forum:detail' post.id %}"
+                    method="POST"
+                    class="mt-5"
+                  >
+                    {% csrf_token %}
                     <textarea
+                      name="text"
                       class="form-control"
                       id="exampleFormControlTextarea1"
                       rows="3"
                       placeholder="Write a large text here ..."
                     ></textarea>
                     <button type="submit" class="btn btn-primary mt-3">
-                      Primary
+                      Post
                     </button>
                   </form>
                 </div>

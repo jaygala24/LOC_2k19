@@ -6,41 +6,51 @@ from .forms import PostForm, CommentForm
 
 
 def post_list(request):
-    if request.user.is_authenticated:
-        posts = Post.objects.all()
-        context = {
-            'posts': posts
-        }
+    # if request.user.is_authenticated:
+    posts = Post.objects.all()
+    context = {
+        'posts': posts
+    }
     return render(request, 'forum.html', context)
 
 
 def post_detail(request, pk):
-    if request.is_authenticated:
-        post = get_object_or_404(Post, pk=pk)
-        comments = Comment.objects.filter(post=post)
-        if request.method == "POST":
-            author = request.POST.get('author', None)
-            text = request.POST.get('text', None)
-            post = request.POST.get('post', None)
-            if author and text and post:
-                comment = Comment.objects.create(
-                    author=author, text=text, post=post)
-        context = {
-            'post': post,
-            'comments': comments
-        }
+    print(request.user)
+    # if request.user.is_authenticated:
+    post = get_object_or_404(Post, pk=pk)
+    comments = Comment.objects.filter(post=post)
+    context = {
+        'post': post,
+        'comments': comments
+    }
+    print(comments)
+    if request.method == "POST":
+        text = request.POST.get('text', None)
+        if text and post:
+            comment = Comment.objects.create(
+                author=request.user, text=text, post=post)
+            return render(request, 'forum_detail.html', context)
+        return render(request, 'forum_detail.html', context)
     return render(request, 'forum_detail.html', context)
+    # return redirect('accounts:login')
+    # return HttpResponse("Invalid")
 
 
-def post_create(request):
-    if request.is_authenticated:
+def post_create(request, *args, **kwargs):
+    if request.user.is_authenticated:
         if request.method == "POST":
             title = request.POST.get('title', None)
             text = request.POST.get('text', None)
             if title and text:
                 post = Post.objects.create(
                     author=request.user, title=title, text=text)
+<<<<<<< HEAD
                 return reverse("forum:detail", {kwargs:{'pk': post.pk}})
             return HttpResponse("Error")
         return HttpResponse('Post Creation')
+=======
+                return redirect('forum:detail', pk=post.pk)
+            return render(request, 'forum_create.html')
+        return render(request, 'forum_create.html')
+>>>>>>> a8570ba4a70d4fee9f13bf72b4fde5d79401c5ef
     return HttpResponse("Error 404")

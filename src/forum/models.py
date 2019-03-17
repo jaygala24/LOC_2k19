@@ -11,6 +11,9 @@ class Post(models.Model):
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    def get_absolute_url(self):
+        return reverse('forum:detail', kwargs={'pk': self.pk})
+
     def __str__(self):
         return self.title
 
