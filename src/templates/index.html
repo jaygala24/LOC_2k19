@@ -39,22 +39,6 @@
 								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
 								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
 								<li class="nav-item"><a class="nav-link" href="causes.html">Causes</a>
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="events.html">Events</a>
-										<li class="nav-item"><a class="nav-link" href="event-details.html">Event Details</a>
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 							</ul>
 						</div> 
 					</div>
@@ -94,7 +78,7 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="single_causes">
 							<h4>Give Donation</h4>
-							<img src="img/causes/c1.png" alt="">
+							<img src="{% static 'img/causes/c1.png' %}" alt="">
 							<p>
 								We have a responsibility to care for other people, to help those less fortunate than ourselves. When we have some spare cash, time or goods, it is an opportunity to help!	
 							</p>
@@ -103,7 +87,7 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="single_causes">
 							<h4>Give Inspiration</h4>
-							<img src="img/causes/c2.png" alt="">
+							<img src="{% static 'img/causes/c2.png' %}" alt="">
 							<p>
 								One of the best gifts one can give to the world is the will to do a good deed. Motivating someone might completely change their way of living! 	
 							</p>
@@ -112,7 +96,7 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="single_causes">
 							<h4>Become Bolunteer</h4>
-							<img src="img/causes/c3.png" alt="">
+							<img src="{% static 'img/causes/c3.png' %}" alt="">
 							<p>
 								A few drops of blood may not kill you, but might save many! Blood donation is equivalent to life donation. Don't be afraid, please BOLUNTEER!
 							</p>
@@ -130,7 +114,7 @@
 					<div class="single_about row">
 						<div class="col-lg-6 col-md-12 text-center">
 							<div class="about_thumb">
-								<img src="img/about-img.jpg" class="img-fluid" alt="">
+								<img src="{% static 'img/about-img.jpg' %}" class="img-fluid" alt="">
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-12">
@@ -171,7 +155,7 @@
 						<div class="card">
 							<div class="card-body">
 								<figure>
-									<img class="card-img-top img-fluid" src="img/features/fc1.jpg" alt="Card image cap">
+									<img class="card-img-top img-fluid" src="{% static 'img/features/fc1.jpg' %}" alt="Card image cap">
 								</figure>
 								<div class="card_inner_body">
 									<h4 class="card-title">Education for every child</h4>
@@ -187,7 +171,7 @@
 						<div class="card">
 							<div class="card-body">
 								<figure>
-									<img class="card-img-top img-fluid" src="img/features/fc2.jpg" alt="Card image cap">
+									<img class="card-img-top img-fluid" src="{% static 'img/features/fc2.jpg' %}" alt="Card image cap">
 								</figure>
 								<div class="card_inner_body">
 									<h4 class="card-title">Feeding the hungry people</h4>
@@ -202,7 +186,7 @@
 						<div class="card">
 							<div class="card-body">
 								<figure>
-									<img class="card-img-top img-fluid" src="img/features/fc3.jpg" alt="Card image cap">
+									<img class="card-img-top img-fluid" src="{% static 'img/features/fc3.jpg' %}" alt="Card image cap">
 								</figure>
 								<div class="card_inner_body">
 									<h4 class="card-title">Providing cloth people</h4>
@@ -232,7 +216,7 @@
 							<div class="row align-items-center">
 								<div class="col-lg-6 col-md-6">
 									<figure>
-										<img class="img-fluid w-100" src="img/event/e1.jpg" alt="">
+										<img class="img-fluid w-100" src="{% static 'img/event/e1.jpg' %}" alt="">
 										<div class="img-overlay"></div>
 									</figure>
 								</div>
@@ -273,7 +257,7 @@
 							<div class="row align-items-center">
 								<div class="col-lg-6 col-md-6">
 									<figure>
-										<img class="img-fluid w-100" src="img/event/e2.jpg" alt="">
+										<img class="img-fluid w-100" src="{% static 'img/event/e2.jpg' %}" alt="">
 										<div class="img-overlay"></div>
 									</figure>
 								</div>
@@ -315,7 +299,7 @@
 							<div class="row align-items-center">
 								<div class="col-lg-6 col-md-6">
 									<figure>
-										<img class="img-fluid w-100" src="img/event/e3.jpg" alt="">
+										<img class="img-fluid w-100" src="{% static 'img/event/e3.jpg' %}" alt="">
 										<div class="img-overlay"></div>
 									</figure>
 								</div>
@@ -357,7 +341,7 @@
 							<div class="row align-items-center">
 								<div class="col-lg-6 col-md-6">
 									<figure>
-										<img class="img-fluid w-100" src="img/event/e4.jpg" alt="">
+										<img class="img-fluid w-100" src="{% static 'img/event/e4.jpg' %}" alt="">
 										<div class="img-overlay"></div>
 									</figure>
 								</div>
@@ -409,7 +393,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="team_item">
 							<div class="team_img">
-								<img class="img-fluid" src="img/voluteer/v1.jpg" alt="">
+								<img class="img-fluid" src="{% static 'img/voluteer/v1.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
 								<h4>Amogh Parab</h4>
@@ -430,7 +414,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="team_item">
 							<div class="team_img">
-								<img class="img-fluid" src="img/voluteer/v2.jpg" alt="">
+								<img class="img-fluid" src="{% static 'img/voluteer/v2.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
 								<h4>Dhairya Shah</h4>
@@ -450,7 +434,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="team_item">
 							<div class="team_img">
-								<img class="img-fluid" src="img/voluteer/v3.jpg" alt="">
+								<img class="img-fluid" src="{% static 'img/voluteer/v3.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
 								<h4>Adit Kalyani</h4>
@@ -470,7 +454,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="team_item">
 							<div class="team_img">
-								<img class="img-fluid" src="img/voluteer/v4.jpg" alt="">
+								<img class="img-fluid" src="{% static 'img/voluteer/v4.jpg' %}" alt="">
 							</div>
 							<div class="team_name">
 								<h4>Jay Rathod</h4>
@@ -556,9 +540,6 @@
 									<li><a href="#">Home</a></li>
 									<li><a href="#">About</a></li>
 									<li><a href="#">Causes</a></li>
-									<li><a href="#">Event</a></li>
-									<li><a href="#">News</a></li>
-									<li><a href="#">Contact</a></li>
 								</ul>
 							</div>
 						</div>
@@ -566,12 +547,12 @@
 							<div class="single-footer-widget instafeed">
 								<h4 class="footer_title">Gallery</h6>
 								<ul class="list instafeed d-flex flex-wrap">
-									<li><img src="img/gallery/g1.jpg" alt=""></li>
-									<li><img src="img/gallery/g2.jpg" alt=""></li>
-									<li><img src="img/gallery/g3.jpg" alt=""></li>
-									<li><img src="img/gallery/g4.jpg" alt=""></li>
-									<li><img src="img/gallery/g5.jpg" alt=""></li>
-									<li><img src="img/gallery/g6.jpg" alt=""></li>
+									<li><img src="{% static 'img/gallery/g1.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/gallery/g2.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/gallery/g3.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/gallery/g4.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/gallery/g5.jpg' %]" alt=""></li>
+									<li><img src="{% static 'img/gallery/g6.jpg' %}" alt=""></li>
 								</ul>
 							</div>
 						</div>

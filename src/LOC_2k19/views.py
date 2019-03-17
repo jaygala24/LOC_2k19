@@ -7,7 +7,7 @@ from donations.models import Donation, Donor
 User = get_user_model()
 
 
-def index(request):
+def dashboard(request):
     volunteer_count = User.objects.filter(is_volunteer=True).count()
     members_count = User.objects.filter(is_member=True).count()
     donors_count = Donor.objects.all().count()
@@ -21,3 +21,6 @@ def index(request):
         'donations': json.dumps(donations)
     }
     return render(request, 'dashboard.html', context)
+
+def index(request):
+    return render(request, 'index.html')
