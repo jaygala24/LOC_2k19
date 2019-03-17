@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
+from .views import index, dashboard
+=======
 from .views import dashboard
+>>>>>>> a8570ba4a70d4fee9f13bf72b4fde5d79401c5ef
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', dashboard, name='dashboard'),
+<<<<<<< HEAD
+    path('', index, name='index'),
+=======
+>>>>>>> a8570ba4a70d4fee9f13bf72b4fde5d79401c5ef
     path('donations/', include('donations.urls')),
     path('accounts/', include('accounts.urls')),
     path('forum/', include('forum.urls')),

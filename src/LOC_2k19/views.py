@@ -21,3 +21,6 @@ def dashboard(request):
         'donations': json.dumps(donations)
     }
     return render(request, 'dashboard.html', context)
+
+def index(request):
+    return render(request, 'index.html')

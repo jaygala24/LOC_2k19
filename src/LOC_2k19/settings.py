@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'forum',
     'stripe',
     'django_markup',
+    'school_college',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

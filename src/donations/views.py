@@ -3,7 +3,10 @@ from django.contrib.auth import get_user_model
 from django.views.generic.base import TemplateView
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from .models import Donation, Donor
+
+User = get_user_model()
 
 User = get_user_model()
 
